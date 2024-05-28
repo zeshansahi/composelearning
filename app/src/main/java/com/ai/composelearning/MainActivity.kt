@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -54,59 +55,24 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainContent() {
     ComposelearningTheme {
-//        @todo row handing
-//        Column(
-//            modifier = Modifier
-//                .fillMaxSize()
-//                .background(MaterialTheme.colorScheme.primaryContainer),
-//            horizontalAlignment = Alignment.CenterHorizontally
-//        ) {
-//            DefaultSurfaceVertical(
-//                1f,
-//                MaterialTheme.colorScheme.secondary
-//            )
-//
-//            DefaultSurfaceVertical(3f)
-//
-//        }
-        Row(modifier = Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly) {
-            DefaultSurfaceHorizontal(1f, MaterialTheme.colorScheme.secondary)
-            DefaultSurfaceHorizontal(3f)
-        }
+        CustomBox()
     }
 }
 
 @Composable
-fun ColumnScope.DefaultSurfaceVertical(
-    weight: Float,
-    color: Color = MaterialTheme.colorScheme.primary
-) {
-    Surface(
-        modifier = Modifier
-            .width(200.dp)
-            .weight(weight),
-        color = color
-    ) {
+fun CustomBox() {
+    Box(modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.TopCenter) {
+
+        Box(
+            modifier = Modifier
+                .height(50.dp)
+                .width(100.dp)
+                .background(Color.Blue)
+        )
+        Text(text = "Hello")
 
     }
-}
-
-@Composable
-fun RowScope.DefaultSurfaceHorizontal(
-    weight: Float,
-    color: Color = MaterialTheme.colorScheme.primary
-) {
-    Surface(
-        modifier = Modifier
-            .height(200.dp)
-            .weight(weight),
-        color = color
-    ) {
-
-    }
-
 }
 
 @Preview(showBackground = true)
