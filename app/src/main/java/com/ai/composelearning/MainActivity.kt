@@ -21,6 +21,7 @@ import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,64 +43,46 @@ class MainActivity : ComponentActivity() {
 fun MainContent() {
     ComposelearningTheme {
         Column(modifier = Modifier.fillMaxSize()) {
-            TextCustomization()
+
             TextCustomization2()
-            TextSelection()
+
         }
     }
 }
 
-@Composable
-fun TextCustomization() {
-    Text(
-        text = stringResource(R.string.app_name),
-        modifier = Modifier
-            .background(Color.Blue)
-            .padding(15.dp)
-            .width(100.dp),
-        color = Color.White,
-        fontSize = MaterialTheme.typography.titleSmall.fontSize,
-
-        )
-}
 
 @Composable
 fun TextCustomization2() {
 
     Text(
         buildAnnotatedString {
-            withStyle(style = ParagraphStyle(textAlign = TextAlign.Center)) {
-                withStyle(
-                    style = SpanStyle(
-                        color = Color.Red,
-                        fontSize = 30.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                ) {
-                    append("A")
-                }
-                append("B")
-                append("C")
-                append("D")
+
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Red,
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            ) {
+                append("A")
             }
+            withStyle(
+                style = SpanStyle(
+                    color = Color.Red,
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    baselineShift = BaselineShift.Superscript
+                )
+            ) {
+                append("3")
+            }
+
 
         },
         modifier = Modifier.width(200.dp)
     )
 }
 
-@Composable
-fun TextSelection(){
-    SelectionContainer {
-        Column {
-            Text(text = "Selectable text")
-            DisableSelection {
-                Text(text = "Not selectable")
-            }
-            Text(text = "Selectable again")
-        }
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
