@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.selection.DisableSelection
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,6 +44,7 @@ fun MainContent() {
         Column(modifier = Modifier.fillMaxSize()) {
             TextCustomization()
             TextCustomization2()
+            TextSelection()
         }
     }
 }
@@ -83,7 +86,19 @@ fun TextCustomization2() {
         },
         modifier = Modifier.width(200.dp)
     )
+}
 
+@Composable
+fun TextSelection(){
+    SelectionContainer {
+        Column {
+            Text(text = "Selectable text")
+            DisableSelection {
+                Text(text = "Not selectable")
+            }
+            Text(text = "Selectable again")
+        }
+    }
 }
 
 @Preview(showBackground = true)
