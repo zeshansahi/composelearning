@@ -6,16 +6,27 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ai.composelearning.ui.theme.ComposelearningTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,24 +42,51 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainContent() {
     ComposelearningTheme {
-        CustomBox()
+        Column(modifier = Modifier.fillMaxSize()) {
+            TextCustomization()
+            TextCustomization2()
+        }
     }
 }
 
 @Composable
-fun CustomBox() {
-    Box(modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.TopCenter) {
+fun TextCustomization() {
+    Text(
+        text = stringResource(R.string.app_name),
+        modifier = Modifier
+            .background(Color.Blue)
+            .padding(15.dp)
+            .width(100.dp),
+        color = Color.White,
+        fontSize = MaterialTheme.typography.titleSmall.fontSize,
 
-        Box(
-            modifier = Modifier
-                .height(50.dp)
-                .width(100.dp)
-                .background(Color.Blue)
         )
-        Text(text = "Hello")
+}
 
-    }
+@Composable
+fun TextCustomization2() {
+
+    Text(
+        buildAnnotatedString {
+            withStyle(style = ParagraphStyle(textAlign = TextAlign.Center)) {
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Red,
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                ) {
+                    append("A")
+                }
+                append("B")
+                append("C")
+                append("D")
+            }
+
+        },
+        modifier = Modifier.width(200.dp)
+    )
+
 }
 
 @Preview(showBackground = true)
