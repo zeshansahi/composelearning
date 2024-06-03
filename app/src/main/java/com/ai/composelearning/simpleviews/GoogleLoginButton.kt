@@ -1,4 +1,4 @@
-package com.ai.composelearning
+package com.ai.composelearning.simpleviews
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ai.composelearning.R
 
 @Composable
 fun GoogleLoginButton() {

@@ -1,4 +1,4 @@
-package com.ai.composelearning
+package com.ai.composelearning.simpleviews
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.ContentAlpha
+import com.ai.composelearning.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -70,4 +70,7 @@ dependencies {
 
     implementation(libs.androidx.animation)
     implementation(libs.material3)
+
+
+    implementation(libs.androidx.navigation.compose)
 }
