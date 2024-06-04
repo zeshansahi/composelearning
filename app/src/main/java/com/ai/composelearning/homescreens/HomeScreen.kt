@@ -1,16 +1,14 @@
-package com.ai.composelearning.screens
+package com.ai.composelearning.homescreens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -37,7 +35,14 @@ fun HomeScreen(navController: NavController) {
                 )
             )
         }) {
-            Text(text = "Click me")
+            Text(text = "View detail")
+        }
+        Button(onClick = {
+            navController.navigate(
+                route = Screens.Login.route
+            )
+        }) {
+            Text(text = "Go to Login")
         }
 
     }

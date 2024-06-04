@@ -6,8 +6,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
-import com.ai.composelearning.screens.DetailScreen
-import com.ai.composelearning.screens.HomeScreen
+import com.ai.composelearning.homescreens.DetailScreen
+import com.ai.composelearning.homescreens.HomeScreen
 
 fun NavGraphBuilder.homeNavGraph(
     navController: NavController

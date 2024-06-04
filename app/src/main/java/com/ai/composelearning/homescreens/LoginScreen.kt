@@ -1,4 +1,4 @@
-package com.ai.composelearning.screens
+package com.ai.composelearning.homescreens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,10 +16,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.ai.composelearning.navigations.Screens
 
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -32,7 +35,9 @@ fun LoginScreen() {
         ) {
             Text(text = "About screen", fontSize = 22.sp)
             Button(
-                onClick = { /*TODO*/ }, modifier = Modifier
+                onClick = {
+                          navController.navigate(Screens.SignUp.route)
+                          }, modifier = Modifier
                     .fillMaxWidth(0.5f)
                     .padding(
                         start = 20.dp,
@@ -52,5 +57,5 @@ fun LoginScreen() {
 @Preview
 fun NewScreenPreview() {
 
-    LoginScreen()
+    LoginScreen(rememberNavController())
 }

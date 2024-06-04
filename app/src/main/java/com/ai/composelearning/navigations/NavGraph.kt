@@ -13,6 +13,7 @@ fun SetupNavGraph(navController: NavHostController) {
         route = ROOT_GRAPH_ROUT
     ) {
         homeNavGraph(navController)
+        authNavGraph(navController)
 
     }
 }
